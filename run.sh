@@ -1,3 +1,5 @@
+sudo apt inatall git npm nodejs docker docker-compose -y
+
 git pull
 
 npm install
