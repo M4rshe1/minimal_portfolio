@@ -1,8 +1,7 @@
-sudo apt inatall git npm nodejs docker docker-compose -y
-
+sudo apt install git npm -y
 git pull
 
 npm install
 npm run build
 
-sudo docker-compose up -d --build --force-recreate
+sudo docker-compose up -d --force-recreate

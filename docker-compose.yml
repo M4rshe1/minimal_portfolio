@@ -3,9 +3,6 @@ version: '3'
 services:
   apache:
     image: httpd:latest
-    build:
-        context: .
-        dockerfile: Dockerfile
     container_name: portfolio
     ports:
       - "1234:80"
