@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import Intro from './components/Intro';
-import Portfolio from './components/portfolio.jsx';
-import Timeline from './components/Timeline';
+import {useEffect, useState} from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+
+// Components
+import Header from "./components/header.jsx";
+
+// Pages
+import Home from "./pages/home.jsx";
+import Projects from "./pages/projects.jsx";
+import Project from "./pages/project.jsx";
+import Footer from "./components/footer.jsx";
 
 function App() {
     const [theme, setTheme] = useState(null);
@@ -61,26 +66,28 @@ function App() {
             />
         </svg>
     );
-
+    
     return (
-        <>
-            <button
-                type="button"
-                onClick={handleThemeSwitch}
-                className="fixed p-2 z-10 right-20 top-4 bg-violet-300 dark:bg-orange-300 text-lg rounded-md"
-            >
-                {theme === 'dark' ? sun : moon}
-            </button>
-            <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-300 min-h-screen font-inter">
-                <div className="max-w-5xl w-11/12 mx-auto">
-                    <Intro />
-                    <Portfolio />
-                    <Timeline />
-                    <Contact />
-                    <Footer />
-                </div>
+        <BrowserRouter>
+        <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-300 min-h-screen font-inter">
+            <div className="max-w-5xl w-11/12 mx-auto">
+                <button
+                    type="button"
+                    onClick={handleThemeSwitch}
+                    className="fixed p-2 z-10 right-10 top-4 bg-violet-300 text-white dark:bg-orange-300 text-lg rounded-md"
+                >
+                    {theme === 'dark' ? sun : moon}
+                </button>
+                <Header/>
+                <Routes>
+                    <Route path="/" element={<Home />}/>
+                    <Route path="/projects" element={<Projects />} />
+                    <Route path="/post/:projectID" exact component={<Project />} />
+                </Routes>
+                <Footer/>
             </div>
-        </>
+        </div>
+        </BrowserRouter>
     )
 }
 

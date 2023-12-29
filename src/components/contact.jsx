@@ -1,5 +1,5 @@
 import React from "react";
-import Title from "./title.jsx";
+import Subtitle from "./subtitle.jsx";
 
 const Contact = () => {
     return (
@@ -10,7 +10,7 @@ const Contact = () => {
                     method="POST"
                     className="fex flex-col w-full md:w-7/12"
                 >
-                    <Title id="contact">Contact</Title>
+                    <Subtitle id="contact">Contact</Subtitle>
                     <input
                         type="text"
                         name="name"
@@ -31,8 +31,8 @@ const Contact = () => {
                     />
                     <button
                         type="submit"
-                        className="text-center inline-block px-8 py-3 w-max text-base font-medium text-white rounded-md bg-gradient-to-r from-yellow-500
-                            to-pink-500 drop-shadow-md hover:stroke-white"
+                        className="text-center inline-block px-8 py-3 w-max text-base font-medium text-white rounded-md 
+                        dark:bg-orange-300 bg-violet-300 drop-shadow-md dark:hover:bg-violet-400 hover:bg-orange-300 transition duration-300 ease-in-out"
                     >
                         Contact Me
                     </button>

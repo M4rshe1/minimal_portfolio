@@ -1,14 +1,13 @@
 import React from "react";
 
-const Title = ({children, id}) => {
+function Title({children}) {
     return (
-        <h1
-        id={id && id}
-        className="text-2xl font-bold underline underline-offset-8 decoration-4 mb-5 text-gray-900 dark:text-white"
-        >
-            {children}
-        </h1>
+        <div>
+            <h1 className="text-4xl font-bold underline underline-offset-8 decoration-4 text-gray-900 dark:text-white mt-8 mb-16">
+                {children}
+            </h1>
+        </div>
     )
 }
 
-export default Title
+export default Title;
