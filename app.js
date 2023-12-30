@@ -8,4 +8,4 @@ app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, './', 'index.html'));
 });
 
-app.listen(80);
+app.listen(8080, () => console.log('Server running on port 8080!'));
