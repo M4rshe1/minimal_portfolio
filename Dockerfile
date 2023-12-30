@@ -1,11 +1,14 @@
-FROM ubuntu:latest
-COPY . /app
+FROM node:latest
+
 WORKDIR /app
 
-RUN apt install nodejs npm -y
-RUN npm install express
+COPY package*.json ./
 
-EXPOSE 80
+RUN npm install
+
+COPY . .
+
+EXPOSE 8080
 
 CMD ["node", "/app/app.js"]
 
