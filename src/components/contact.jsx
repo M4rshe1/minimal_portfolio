@@ -1,25 +1,42 @@
-import React from "react";
+import React, {useRef} from "react";
 import Subtitle from "./subtitle.jsx";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+    const form = useRef();
+
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        emailjs.sendForm('service_wogrnim', 'template_9nu2bjt', form.current, "To0mvycqcZAMWX5t9")
+            .then(function () {
+                console.log('SUCCESS!');
+                alert("Your message has been sent!")
+                window.location.reload();
+            }, function (error) {
+                console.log('FAILED...', error);
+            });
+    }
+
     return (
         <div className="flex flex-col mb-10 mx-auto">
             <div className="flex justify-center items-center">
                 <form
+                    ref={form}
                     action="https://getform.io/f/d836c56b-beb4-4b87-a151-f12e562e6b15"
                     method="POST"
                     className="fex flex-col w-full md:w-7/12"
+                    onSubmit={handleFormSubmit}
                 >
                     <Subtitle id="contact">Contact</Subtitle>
                     <input
                         type="text"
-                        name="name"
+                        name="user_name"
                         placeholder="Name"
                         className="p-2 bg-transparent border-2 rounded-md focus:outline-none w-full"
                     />
                     <input
                         type="email"
-                        name="email"
+                        name="user_email"
                         placeholder="Email"
                         className="my-4 p-2 bg-transparent border-2 rounded-md focus:outline-none w-full"
                     />
@@ -36,7 +53,6 @@ const Contact = () => {
                     >
                         Contact Me
                     </button>
-                    {/*<input type="hidden" name="_gotcha" style="display:none !important"/>*/}
                 </form>
             </div>
         </div>

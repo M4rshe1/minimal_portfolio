@@ -1,9 +1,8 @@
-FROM node:latest as build
-COPY . /app
+FROM ubuntu:latest
+COPY dist/ /app
 WORKDIR /app
 
-RUN npm ci --omit dev
-RUN npm build
+RUN apt install nodejs npm -y
 RUN npm install express
 
 EXPOSE 80
