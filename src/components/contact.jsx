@@ -4,17 +4,20 @@ import emailjs from '@emailjs/browser';
 
 const Contact = () => {
     const form = useRef();
+    const serviceID = "service_wogrnim";
+    const publickKey = "To0mvycqcZAMWX5t9";
+    const themplateID =  "template_9nu2bjt";
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        emailjs.sendForm('service_wogrnim', 'template_9nu2bjt', form.current, "To0mvycqcZAMWX5t9")
+        emailjs.sendForm(serviceID, themplateID, form.current, publickKey
             .then(function () {
                 console.log('SUCCESS!');
                 alert("Your message has been sent!")
                 window.location.reload();
             }, function (error) {
                 console.log('FAILED...', error);
-            });
+            }));
     }
 
     return (
@@ -22,7 +25,7 @@ const Contact = () => {
             <div className="flex justify-center items-center">
                 <form
                     ref={form}
-                    action="https://getform.io/f/d836c56b-beb4-4b87-a151-f12e562e6b15"
+                    action="/"
                     method="POST"
                     className="fex flex-col w-full md:w-7/12"
                     onSubmit={handleFormSubmit}
