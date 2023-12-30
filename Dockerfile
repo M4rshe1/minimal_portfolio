@@ -2,7 +2,7 @@ FROM node:latest as build
 COPY . /app
 WORKDIR /app
 
-RUN npm install
+RUN npm ci --omit dev
 RUN npm build
 RUN npm install express
 
