@@ -1,4 +1,4 @@
-sudo apt install git npm -y
+git checkout build
 git pull
 
 npm install

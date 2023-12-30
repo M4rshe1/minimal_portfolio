@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-COPY dist/ /app
+COPY . /app
 WORKDIR /app
 
 RUN apt install nodejs npm -y
