@@ -7,8 +7,8 @@ import Header from "./components/header.jsx";
 // Pages
 import Home from "./pages/home.jsx";
 import Projects from "./pages/projects.jsx";
-import Project from "./pages/project.jsx";
 import Footer from "./components/footer.jsx";
+import NotFound from "./pages/404.jsx";
 
 function App() {
     const [theme, setTheme] = useState(null);
@@ -70,7 +70,7 @@ function App() {
     return (
         <BrowserRouter>
         <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-300 min-h-screen font-inter">
-            <div className="max-w-5xl w-11/12 mx-auto">
+            <div className="max-w-5xl w-11/12 mx-auto min-h-screen flex flex-col items-center">
                 <button
                     type="button"
                     onClick={handleThemeSwitch}
@@ -82,7 +82,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />}/>
                     <Route path="/projects" element={<Projects />} />
-                    <Route path="/post/:projectID" exact component={<Project />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
                 <Footer/>
             </div>

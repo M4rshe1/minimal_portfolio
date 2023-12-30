@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const statusColors = {
     0: {
@@ -22,11 +23,11 @@ const statusColors = {
 const ProjectItem = ({imgUrl, title, stack, url, status}) => {
     return (
 
-        <a
-            href={url}
+        <Link
             className="border-2 border-gray-900 rounded-md dark:border-white overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out"
             // target="_blank"
             rel="noreferrer"
+            to={url}
         >
             <img
                 src={imgUrl}
@@ -59,7 +60,7 @@ const ProjectItem = ({imgUrl, title, stack, url, status}) => {
                     ))}
                 </p>
             </div>
-        </a>
+        </Link>
     )
 }
 
