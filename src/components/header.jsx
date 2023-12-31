@@ -7,6 +7,10 @@ const links = [
         text: "projects"
     },
     {
+        to: "/stacks",
+        text: "stacks"
+    },
+    {
         to: "https://github.com/M4rshe1",
         text: "github"
     },

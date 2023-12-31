@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import StackItem from "./stackItem.jsx";
 
 const statusColors = {
     0: {
@@ -22,21 +23,24 @@ const statusColors = {
 
 const ProjectItem = ({imgUrl, title, stack, url, status}) => {
     return (
-
-        <Link
+        <div
             className="border-2 border-gray-900 rounded-md dark:border-white overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out"
-            // target="_blank"
-            rel="noreferrer"
-            to={url}
+            title={statusColors[status].text}
         >
             <img
                 src={imgUrl}
                 alt="Image"
-                className="w-full h-36 cursor-pointer object-cover object-center"
+                className="w-full h-36 object-cover object-center"
             />
             <div className="w-full p-4">
                 <h3 className="relative text-lg md:text-xl mb-2 md:mb-3 font-semibold flex flex-row justify-between items-center">
-                    <span>{title}</span>
+                    <Link
+                        rel="noreferrer"
+                        to={url}
+                        className="hover:underline cursor-pointer"    
+                    >
+                        {title}
+                    </Link>
                     <span
                         className="relative h-3 w-3"
                     >
@@ -50,17 +54,15 @@ const ProjectItem = ({imgUrl, title, stack, url, status}) => {
                 </h3>
                 <p className="flex flex-wrap gap-2 flex-row items-center justify-start text-xm md:text-sm">
                     {stack.map((item, index) => (
-                        <span
+                        <StackItem
+                            text={item.text}
+                            color={item.color}
                             key={index}
-                            className="inline-block px-2 py-1 font-semibold border-2 rounded-md"
-                            style={{"borderColor": item.color}}
-                        >
-                            {item.text}
-                        </span>
+                        />
                     ))}
                 </p>
             </div>
-        </Link>
+        </div>
     )
 }
 

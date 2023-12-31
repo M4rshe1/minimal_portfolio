@@ -9,6 +9,8 @@ import Home from "./pages/home.jsx";
 import Projects from "./pages/projects.jsx";
 import Footer from "./components/footer.jsx";
 import NotFound from "./pages/404.jsx";
+import StacksPage from "./pages/stacks.jsx";
+import StackPage from "./pages/stack.jsx";
 
 function App() {
     const [theme, setTheme] = useState(null);
@@ -82,6 +84,8 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />}/>
                     <Route path="/projects" element={<Projects />} />
+                    <Route path="/stacks" element={<StacksPage />} />
+                    <Route path="/stack/:stackID" element={<StackPage />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
                 <Footer/>
