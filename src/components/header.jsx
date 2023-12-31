@@ -18,10 +18,7 @@ const links = [
 
 function Header() {
     return (
-        <header className="flex flex-row justify-between items-center py-4 px-8 md:text-xl text-sm">
-            <div>
-                {/*  placeholder*/}
-            </div>
+        <header className="flex flex-row justify-between items-center py-4 md:text-xl text-sm">
             <div className="flex flex-row items-center gap-4">
                 <NavLink 
                     key="0"
@@ -42,9 +39,6 @@ function Header() {
                 }
                 {/*<NavLink to="/" className="text-xl font-semibold hover:text-black dark:hover:text-white">./ <span>home</span></NavLink>*/}
                 {/*<NavLink to="/projects" className="text-xl font-semibold hover:text-black dark:hover:text-white">./projects</NavLink>*/}
-            </div>
-            <div>
-                {/*  placeholder*/}
             </div>
         </header>
     )
